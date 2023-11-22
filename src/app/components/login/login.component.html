@@ -1,52 +1,59 @@
-<div class="container">
-  <div class="forms-container">
-    <div class="signin-signup">
-      <form (ngSubmit)="onSubmit()" class="sign-in-form">
-        <h2 class="title">Sign in</h2>
-        <div class="input-field">
-          <i class="fas fa-user"></i>
-          <input type="text" placeholder="Username" />
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="d-flex col-lg-5 center align-items-center auth-bg px-2 p-lg-5">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
+      <h2 class="card-title fw-bold mb-1">Welcome to Doctor Backend! 👋</h2>
+      <form class="auth-login-form mt-2" (ngSubmit)="onSubmit()">
+        <div class="mb-1">
+          <label class="form-label" for="login-email">Email</label>
+          <input
+            class="form-control"
+            id="login-email"
+            type="text"
+            name="login-email"
+            placeholder="john@example.com"
+            aria-describedby="login-email"
+            autofocus=""
+            tabindex="1"
+          />
         </div>
-        <div class="input-field">
-          <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" />
+        <div class="mb-1">
+          <div class="d-flex justify-content-between">
+            <label class="form-label" for="login-password">Password</label
+            ><a href="login"><small>Forgot Password?</small></a>
+          </div>
+          <div class="input-group input-group-merge form-password-toggle">
+            <input
+              class="form-control form-control-merge"
+              id="login-password"
+              type="password"
+              name="login-password"
+              placeholder="············"
+              aria-describedby="login-password"
+              tabindex="2"
+            /><span class="input-group-text cursor-pointer"
+              ><i data-feather="eye"></i
+            ></span>
+          </div>
         </div>
-        <input type="submit" value="submit" class="btn solid" />
-
-        <p class="social-text">Or Sign in with social platforms</p>
-        <div class="social-media">
-          <a href="#" class="social-icon">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" class="social-icon">
-            <i class="fab fa-twitter"></i>
-            <!-- <i class="fa-brands fa-x-twitter"></i> -->
-          </a>
-          <a href="#" class="social-icon">
-            <i class="fab fa-google"></i>
-          </a>
-          <a href="#" class="social-icon">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
+        <div class="mb-1">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              id="remember-me"
+              type="checkbox"
+              tabindex="3"
+            />
+            <label class="form-check-label" for="remember-me">
+              Remember Me</label
+            >
+          </div>
         </div>
+        <button class="btn btn-primary w-100" tabindex="4">Sign in</button>
       </form>
-    </div>
-  </div>
-
-  <div class="panels-container">
-    <div class="panel left-panel">
-      <div class="content">
-        <h3>New here ?</h3>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas
-          rerum nulla eius?
-        </p>
-        <button class="btn transparent" id="sign-up-btn" routerLink="/signup">
-          Sign up
-        </button>
-      </div>
-
-      <img src="img/log.svg" class="image" alt="" />
+      <p class="text-center mt-2">
+        <span>New on our platform?</span
+        ><a href="signup"><span>&nbsp;Create an account</span></a>
+      </p>
     </div>
   </div>
 </div>
