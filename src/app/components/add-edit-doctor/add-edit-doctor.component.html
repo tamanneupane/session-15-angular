@@ -1,0 +1,39 @@
+<div class="d-flex flex-row bd-highlight mb-9">
+  <div class="p-2 w-100 bd-highlight">
+    <div class="input-group mb-12">
+      <span class="input-group-text">Doctor Email</span>
+      <input type="text" class="form-control" [(ngModel)]="email" />
+    </div>
+    <div class="input-group mb-12 mt-4">
+      <span class="input-group-text">Doctor Name</span>
+      <input type="text" class="form-control" [(ngModel)]="name" />
+    </div>
+    <div class="input-group mb-12 mt-4">
+      <span class="input-group-text">Doctor NMC Number</span>
+      <input type="text" class="form-control" [(ngModel)]="nmcNumber" />
+    </div>
+    <div class="input-group mb-12 mt-4">
+      <span class="input-group-text">Doctor PhoneNumber</span>
+      <input type="text" class="form-control" [(ngModel)]="phoneNumber" />
+    </div>
+    <div class="input-group mb-12 mt-4">
+      <span class="input-group-text">Doctor Speciality</span>
+      <input type="text" class="form-control" [(ngModel)]="speciality" />
+    </div>
+    <div class="input-group mb-12 mt-4">
+      <span class="input-group-text">Doctor Fee</span>
+      <input type="text" class="form-control" [(ngModel)]="fee" />
+    </div>
+  </div>
+</div>
+<button (click)="addDoctor()" *ngIf="doctor.id == ''" class="btn btn-primary">
+  Add
+</button>
+
+<button
+  (click)="updateDoctor()"
+  *ngIf="doctor.id != ''"
+  class="btn btn-primary"
+>
+  Update
+</button>

@@ -33,6 +33,10 @@
           </button>
         </div>
         <div class="modal-body">
+          <app-add-edit-doctor
+            *ngIf="activateAddEditDoctorComponent"
+            [doctor]="doctor"
+          ></app-add-edit-doctor>
           <!-- <app-add-edit-department [depart]="depart" *ngIf="ActivateAddEditDepartComp">
         </app-add-edit-department> -->
         </div>
@@ -50,17 +54,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let dataItem of doctorList">
-        <td>{{ dataItem.id }}</td>
-        <td>{{ dataItem.name }}</td>
-        <td>{{ dataItem.speciality }}</td>
+      <tr *ngFor="let doctor of doctorList">
+        <td>{{ doctor.id }}</td>
+        <td>{{ doctor.name }}</td>
+        <td>{{ doctor.speciality }}</td>
         <td>
           <button
             type="button"
             class="btn btn-light mr-1"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
-            (click)="editClick(dataItem)"
+            (click)="editClick(doctor)"
             data-backdrop="static"
             data-keyboard="false"
           >
@@ -84,7 +88,7 @@
           <button
             type="button"
             class="btn btn-light mr-1"
-            (click)="deleteClick(dataItem)"
+            (click)="deleteClick(doctor)"
           >
             <svg
               width="1em"

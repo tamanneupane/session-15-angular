@@ -9,8 +9,20 @@ import { ApiserviceService } from 'src/app/apiservice.service';
 export class ShowDoctorComponent implements OnInit {
   doctorList: any;
   ModalTitle: string = 'This is title';
+  activateAddEditDoctorComponent: boolean = false;
+  doctor: any;
 
-  constructor(private apiService: ApiserviceService) {}
+  constructor(private apiService: ApiserviceService) {
+    this.doctor = {
+      email: '',
+      fee: 0,
+      id: '',
+      name: '',
+      nmcNumber: '',
+      phoneNumber: '',
+      speciality: '',
+    };
+  }
 
   ngOnInit(): void {
     this.refreshDoctorList();
@@ -24,14 +36,39 @@ export class ShowDoctorComponent implements OnInit {
   }
 
   addClick() {
+    this.doctor = {
+      email: '',
+      fee: 0,
+      id: '',
+      name: '',
+      nmcNumber: '',
+      phoneNumber: '',
+      speciality: '',
+    };
     this.ModalTitle = 'Add Doctor';
+    this.activateAddEditDoctorComponent = true;
   }
 
-  closeClick() {}
+  closeClick() {
+    this.activateAddEditDoctorComponent = false;
+    this.refreshDoctorList();
+  }
 
   editClick(doctor: any) {
     this.ModalTitle = 'Edit Doctor';
+    this.activateAddEditDoctorComponent = true;
+    this.doctor = doctor;
+    console.log(doctor);
   }
 
-  deleteClick(doctor: any) {}
+  deleteClick(doctor: any) {
+    console.log(doctor);
+    this.doctor = doctor;
+    if (confirm('Are you sure??')) {
+      this.apiService.deleteDoctors(this.doctor.id).subscribe((data) => {
+        alert('Doctor Deleted Successfully');
+        this.refreshDoctorList();
+      });
+    }
+  }
 }
